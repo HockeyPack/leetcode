@@ -3,13 +3,11 @@
  */
 package me.hockey.learn.leetcode354;
 
-import java.util.List;
-import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
 /**
- *
+ * 缺少了高度的考虑，只考虑了一个宽度维度，导致会统计少数据
  *
  * 2020/4/27 12:41
  * @version 1.0.0
@@ -33,6 +31,7 @@ class Solution {
                 treeMap.get(eachMap[0]).add(eachMap[1]);
             }
         }
+
         for(Integer each : treeMap.keySet()){
             if(currentWidth < 0){
                 currentWidth = each;
