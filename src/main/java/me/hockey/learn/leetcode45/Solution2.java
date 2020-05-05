@@ -14,8 +14,9 @@ package me.hockey.learn.leetcode45;
 public class Solution2 {
     public int jump(int[] nums) {
         int step = 0;
-        //记录到nums[nums.length-1]的前一步的最小位置indexi;
-        //递归查找到0,表示接受
+        //1、令index为 nums.length-1;
+        //2、查找到nums[index]的前一步的最小位置indexPre，步数加一;
+        //3、每次重复2，直到index到 0,
         int index =  nums.length-1;
         while (index  > 0){
             index = findMinPrePositionToCurrentIndex(nums,index);
