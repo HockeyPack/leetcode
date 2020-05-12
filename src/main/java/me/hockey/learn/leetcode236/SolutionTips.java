@@ -1,0 +1,35 @@
+/**
+ *
+ */
+package me.hockey.learn.leetcode236;
+
+/**
+ * 官方题解，非常清晰的递归查找策略
+ *
+ * 2020/5/12 13:59
+ * @version 1.0.0
+ * @author leetcode
+ *
+ */
+public class SolutionTips {
+    private TreeNode ans;
+
+    public SolutionTips() {
+        this.ans = null;
+    }
+
+    private boolean dfs(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) return false;
+        boolean lson = dfs(root.left, p, q);
+        boolean rson = dfs(root.right, p, q);
+        if ((lson && rson) || ((root.val == p.val || root.val == q.val) && (lson || rson))) {
+            ans = root;
+        }
+        return lson || rson || (root.val == p.val || root.val == q.val);
+    }
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        this.dfs(root, p, q);
+        return this.ans;
+    }
+}

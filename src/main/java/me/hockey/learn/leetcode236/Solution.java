@@ -4,12 +4,11 @@
 package me.hockey.learn.leetcode236;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Deque;
-import java.util.List;
 
 /**
- *
+ * 思路
+ * 将查找节点路径存储到列表中，对比列表。
  *
  * 2020/5/11 17:02
  * @version 1.0.0
