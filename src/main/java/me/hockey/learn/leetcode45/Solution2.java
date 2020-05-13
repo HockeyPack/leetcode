@@ -30,7 +30,7 @@ public class Solution2 {
         if(stepTo == 0){
             return 0;
         }else {
-            for (int index = 0; index < stepTo - 1; index++) {
+            for (int index = 0; index < stepTo; index++) {
                 if (nums[index] + index >= stepTo) {
                     return index;
                 }
