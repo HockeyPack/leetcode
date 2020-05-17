@@ -6,7 +6,7 @@ package me.hockey.learn.leetcode560;
 import java.util.*;
 
 /**
- *
+ * O(N)
  * 2020/5/15 10:46
  * @version 1.0.0
  * @author he.jiepeng
