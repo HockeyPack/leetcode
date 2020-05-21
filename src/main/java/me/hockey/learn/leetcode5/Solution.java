@@ -19,8 +19,16 @@ import java.util.Stack;
  * 链接：https://leetcode-cn.com/problems/longest-palindromic-substring
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  *
- *
- * 能执行，但是效率太低了，超过正常时间。
+ *执行用时 :
+ * 40 ms
+ * , 在所有 Java 提交中击败了
+ * 66.21%
+ * 的用户
+ * 内存消耗 :
+ * 38.3 MB
+ * , 在所有 Java 提交中击败了
+ * 24.10%
+ * 的用户
  *
  * 2020/5/20 12:43
  * @version 1.0.0
@@ -32,17 +40,14 @@ class Solution {
         if(s == null || s.length() <= 1){
             return s;
         }
-
         int from = 0;
         int to = 1;
         int maxLength = 1;
 
         for(int index = 0; index < s.length(); index++){
-            StringBuilder builder = new StringBuilder();
             int currentMaxLength = 1;
             int nextFromIndex = index;
             int nextToIndex = index;
-            builder.append(s.charAt(index));
             while ((nextFromIndex) >= 0
                     && (nextToIndex) <= s.length() -1
                     && s.charAt(nextFromIndex) == s.charAt(nextToIndex)){
@@ -60,37 +65,35 @@ class Solution {
                 nextFromIndex--;
                 nextToIndex ++;
             }
-            builder.delete(0,builder.length());
             if(index > 0){
                 nextFromIndex = index - 1;
                 nextToIndex = index;
-                builder.insert(0,s.charAt(nextFromIndex));
-                builder.append(s.charAt(nextToIndex));
-                boolean isPDouble= builder.charAt(0)== builder.charAt(1);
-                if (isPDouble){
-                    currentMaxLength = 2;
+                boolean isPDouble= s.charAt(nextFromIndex)== s.charAt(nextToIndex);
+                if (!isPDouble){
+                    continue;
+                }
+                currentMaxLength = 2;
+                if(currentMaxLength > maxLength){
+                    from = nextFromIndex;
+                    to = nextToIndex;
+                    maxLength = currentMaxLength;
+                }
+                while ((nextFromIndex) >= 0
+                        && (nextToIndex) <= s.length() -1
+                        && s.charAt(nextFromIndex) == s.charAt(nextToIndex)){
+                    if(nextFromIndex+1 == nextToIndex){
+                        nextFromIndex--;
+                        nextToIndex ++;
+                        continue;
+                    }
+                    currentMaxLength += 2;
                     if(currentMaxLength > maxLength){
                         from = nextFromIndex;
                         to = nextToIndex;
                         maxLength = currentMaxLength;
                     }
-                    while ((nextFromIndex) >= 0
-                            && (nextToIndex) <= s.length() -1
-                            && s.charAt(nextFromIndex) == s.charAt(nextToIndex)){
-                        if(nextFromIndex+1 == nextToIndex){
-                            nextFromIndex--;
-                            nextToIndex ++;
-                            continue;
-                        }
-                        currentMaxLength += 2;
-                        if(currentMaxLength > maxLength){
-                            from = nextFromIndex;
-                            to = nextToIndex;
-                            maxLength = currentMaxLength;
-                        }
-                        nextFromIndex--;
-                        nextToIndex ++;
-                    }
+                    nextFromIndex--;
+                    nextToIndex ++;
                 }
             }
         }
