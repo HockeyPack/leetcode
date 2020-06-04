@@ -3,9 +3,6 @@
  */
 package me.hockey.learn.leetcode101;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Queue;
 
 /**
  *
