@@ -14,8 +14,15 @@ import java.util.Arrays;
  *
  */
 public class LeetCode29Test {
+
     public static void main(String[] args) {
         int[][] source = new int[1][0];
+        System.out.println(Arrays.toString(new Solution().spiralOrder(source)));
+
+        source = new int[0][1];
+        System.out.println(Arrays.toString(new Solution().spiralOrder(source)));
+
+        source = new int[0][0];
         System.out.println(Arrays.toString(new Solution().spiralOrder(source)));
 
         source = new int[1][2];
