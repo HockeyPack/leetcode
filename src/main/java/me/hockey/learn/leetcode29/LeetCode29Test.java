@@ -30,12 +30,10 @@ public class LeetCode29Test {
         source[0][1] = 2;
         System.out.println(Arrays.toString(new Solution().spiralOrder(source)));
 
-
         source = new int[2][1];
         source[0][0] = 1;
         source[1][0] = 2;
         System.out.println(Arrays.toString(new Solution().spiralOrder(source)));
-
 
         source = new int[2][2];
         source[0][0] = 1;
@@ -43,7 +41,6 @@ public class LeetCode29Test {
         source[1][0] = 4;
         source[1][1] = 3;
         System.out.println(Arrays.toString(new Solution().spiralOrder(source)));
-
 
         source = new int[3][3];
         source[0][0] = 1;

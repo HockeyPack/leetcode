@@ -49,9 +49,8 @@ class Solution {
         int currentIndex = 0;
         int direct = 0;
 
-
-
-        while (currentX >= minX && currentX <= maxX && currentY >= minY && currentY <= maxY) {
+        while (currentX >= minX && currentX <= maxX
+                && currentY >= minY && currentY <= maxY) {
             result[currentIndex] = matrix[currentY][currentX];
             currentIndex++;
             if (currentIndex == xLength * yLength) {
